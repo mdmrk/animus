@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mdmrk.dev/", 
+  site: "https://mdmrk.dev/",
   integrations: [
     tailwind({
       applyBaseStyles: false,

@@ -22,11 +22,11 @@
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
-    display: none;
+    @apply hidden;
   }
   #moon-svg,
   html[data-theme="dark"] #sun-svg {
-    display: block;
+    @apply block;
   }
   body {
     @apply flex min-h-screen flex-col bg-skin-fill font-mono text-skin-base 
