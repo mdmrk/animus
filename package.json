@@ -9,7 +9,7 @@
     "sync": "astro sync",
     "astro": "astro",
     "format:check": "prettier --plugin-search-dir=. --check .",
-    "format": "prettier --plugin-search-dir=. --write .",
+    "format": "prettier --ignore-path=.gitignore --write .",
     "cz": "cz",
     "lint": "eslint ."
   },
