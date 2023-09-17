@@ -39,13 +39,19 @@ const ogUrl = new URL(ogImage ? ogImage : `${post.slug}.png`, Astro.url.origin)
         ><path
           d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
         ></path>
-      </svg><span>Go back</span>
+      </svg><span class="flex items-center justify-center text-sm">Go back</span
+      >
     </button>
   </div>
   <main id="main-content">
-    <h1 transition:name={title} class="post-title">{title}</h1>
-    <Datetime datetime={pubDatetime} size="lg" className="my-2" />
-    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
+    <div class="flex flex-row justify-start items-center gap-4">
+      <h1 transition:name={title} class="post-title">{title}</h1>
+      <Datetime datetime={pubDatetime} className="my-2" />
+    </div><article
+      id="article"
+      role="article"
+      class="prose mx-auto mt-8 max-w-3xl"
+    >
       <Content />
     </article>
 
