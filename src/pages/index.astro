@@ -8,7 +8,6 @@ import Hr from "@components/Hr.astro";
 import Card from "@components/Card.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
-import { SOCIALS } from "@config";
 
 const posts = await getCollection("blog");
 
@@ -41,11 +40,6 @@ const sortedPosts = getSortedPosts(posts);
       <div class="all-posts-btn-wrapper">
         <LinkButton href="/posts">
           All Posts
-          <svg xmlns="http://www.w3.org/2000/svg"
-            ><path
-              d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"
-            ></path>
-          </svg>
         </LinkButton>
       </div>
     </section>
@@ -88,6 +82,6 @@ const sortedPosts = getSortedPosts(posts);
     @apply text-2xl font-semibold tracking-wide;
   }
   .all-posts-btn-wrapper {
-    @apply my-8 text-center;
+    @apply mx-auto my-8 w-fit rounded-lg border-2 border-skin-fill hover:border-skin-accent hover:text-skin-accent px-2 py-1 text-center;
   }
 </style>

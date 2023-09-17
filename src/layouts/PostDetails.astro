@@ -35,23 +35,14 @@ const ogUrl = new URL(ogImage ? ogImage : `${post.slug}.png`, Astro.url.origin)
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
     >
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><path
-          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
-        ></path>
-      </svg><span class="flex items-center justify-center text-sm">Go back</span
+      <span class="flex items-center justify-center text-sm">&lt Go back</span
       >
     </button>
   </div>
   <main id="main-content">
-    <div class="flex flex-row justify-start items-center gap-4">
-      <h1 transition:name={title} class="post-title">{title}</h1>
-      <Datetime datetime={pubDatetime} className="my-2" />
-    </div><article
-      id="article"
-      role="article"
-      class="prose mx-auto mt-8 max-w-3xl"
-    >
+    <h1 transition:name={title} class="post-title">{title}</h1>
+    <Datetime datetime={pubDatetime} className="my-2" />
+    <article id="article" role="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>
 
