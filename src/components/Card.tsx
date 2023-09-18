@@ -30,7 +30,7 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
         </h1>
       </a>
       <Datetime datetime={pubDatetime} />
-      <p>{description}</p>
+      <p className="font-light opacity-80">{description}</p>
     </li>
   );
 }
