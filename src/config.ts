@@ -27,6 +27,18 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
   {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/mariodavo",
+    linkTitle: `${SITE.title} on LinkedIn`,
+    active: true,
+  },
+  {
+    name: "Letterboxd",
+    href: "https://letterboxd.com/mariv1k/",
+    linkTitle: ` ${SITE.title} on Letterboxd`,
+    active: true,
+  },
+  {
     name: "Facebook",
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on Facebook`,
@@ -37,12 +49,6 @@ export const SOCIALS: SocialObjects = [
     href: "https://github.com/satnaing/astro-paper",
     linkTitle: `${SITE.title} on Instagram`,
     active: false,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/mariodavo",
-    linkTitle: `${SITE.title} on LinkedIn`,
-    active: true,
   },
   {
     name: "Mail",
