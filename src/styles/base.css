@@ -33,7 +33,7 @@
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   html[data-theme="dark"] body {
-    @apply bg-[url(/assets/content-bg.webp)] bg-[0_-1px] bg-repeat-x;
+    @apply bg-[url(/assets/content-bg.webp)] bg-repeat-x;
   }
   section,
   footer {
