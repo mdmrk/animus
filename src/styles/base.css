@@ -29,7 +29,7 @@
     @apply block;
   }
   body {
-    @apply flex min-h-[100dvh] flex-col bg-skin-fill font-sans font-medium text-skin-base 
+    @apply flex min-h-[100svh] flex-col bg-skin-fill font-sans font-medium text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
   html[data-theme="dark"] body {
