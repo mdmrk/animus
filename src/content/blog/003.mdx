@@ -1,0 +1,65 @@
+---
+title: Emoji quest
+description: Who likes emojis? :)
+pubDatetime: 2023-10-30T21:16:00Z
+author: mdmrk
+postSlug: emoji-quest
+featured: true
+draft: false
+tags:
+  - programming
+  - react
+---
+
+import Emoji from "@components/Emoji";
+
+I <Emoji emoji="💙" /> emojis. Warning <Emoji emoji="⚠️" /> Many emojis ahead!
+
+I'm a PC environment customization enthusiast. I love tweaking values, colors <Emoji emoji="🎨" /> and shapes to create my perfect <sub>_(never fullfills <Emoji emoji="😵‍💫" />)_</sub> stylized workspace. I probably spend hours browsing public projects and getting ideas for my next creations. Finding that color scheme, that shadow style, that font, that blur, ... I am currently writing this on my [AwesomeWM rice](https://github.com/mdmrk/policromia) <Emoji emoji="🍙" />, which I still change from time to time. Anyway, I found out that this things called emojis <Emoji emoji="😄" /> are beautiful and be combined so well when used appropriately.
+
+That point is when I came across the Apple <Emoji emoji="🍎" /> Color Emoji bundle, which is basically the emoji appearance that Apple's devices use by default on their UI, apps, .... Despite being different to other platform, they're defined with Unicode. This Unicode thing is a bit extend <Emoji emoji="🥸" />, so I'll just say that emojis tend to vary in appereance from device to device. I find these emojis so pleasant and colorful, so I wanted Linux to show them to me instead of the other ugly <Emoji emoji="🐽" /> alternatives. Easy task, someone already made a repository; download <Emoji emoji="📥" /> the font and apply it. However, something inside my mind <Emoji emoji="💆" /> was a bit off.
+
+Well, this site is what I'm trying to call my personal website <Emoji emoji="🧘" />, so of course I want it to look perfect <Emoji emoji="✨" />. I wanted emojis on my website but as I mentioned before, emojis vary depending on the platform <Emoji emoji="📱" /> you're on. For example, your Android phone will likely show a Google variant for each emoji (As you might see: Your platform emoji: 😜. Apple emoji <Emoji emoji="😜" />). I wanted to show Apple emoji to all users when they visit this site, at least in this blog section; but how could I accomplish such task? <Emoji emoji="🤔" />
+
+First, try to come up with a quick idea <Emoji emoji="💡" />. Maybe use images? But how to serve them. Local hosting? API? Downloading the whole emoji bundle and attaching it to my website repo wasn't something I preferred <Emoji emoji="🗯️" />. However, in one of my web browsing sessions I came across a proper solution. [A NodeJS package](https://www.npmjs.com/package/emoji-picker-react) <Emoji emoji="📦" />, gotta love these things. Integrated for React, which was already set up on my site. A couple hours later I had a working component that lazily fetched and displayed the emoji as and `<img>` I wanted. So nice. The code <Emoji emoji="⌨️" /> for the `Emoji.tsx` component looked like this:
+
+```tsx
+import { clamp } from "@utils/math";
+import { Emoji as _Emoji } from "emoji-picker-react";
+
+function getEmojiUrl(unified: string) {
+  return (
+    `https://cdn.staticfile.org/emoji-datasource-apple` +
+    `/15.0.0/img/apple/64/${unified}.png`
+  );
+}
+
+export default function Emoji(props: { emoji: string; size?: number }) {
+  const unified = [...props.emoji]
+    .map(e => e.codePointAt(0)!.toString(16))
+    .join(`-`);
+  const size = clamp(props.size ?? 18, 1, 64);
+
+  return (
+    <_Emoji lazyLoad unified={unified} getEmojiUrl={getEmojiUrl} size={size} />
+  );
+}
+```
+
+I you looked closely, you spotted a size <Emoji emoji="🐥" size={64}/> prop.
+
+Next and final task, get it to my Markdown posts <Emoji emoji="📰" />. Well, turns out this is really easy <Emoji emoji="🥳" /> too. I set up MDX that allowed me to embed my React components into Markdown files, that was awesome.
+
+And just as easy to use as:
+
+```mdx
+import Emoji from "@components/Emoji";
+
+<Emoji emoji="🐱" />
+```
+
+Now I can easily spam emojis in my posts... <Emoji emoji="👹" />
+
+![](/assets/blog/003/coraline-dad.gif)
+
+> Coraline (film)
