@@ -4,12 +4,12 @@ import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
-
 import mdx from "@astrojs/mdx";
+import { SITE } from "./src/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mdmrk.dev/",
+  site: SITE.website,
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -32,7 +32,6 @@ export default defineConfig({
       theme: "one-dark-pro",
       wrap: true,
     },
-    extendDefaultPlugins: true,
   },
   vite: {
     optimizeDeps: {
