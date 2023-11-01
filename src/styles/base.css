@@ -148,5 +148,5 @@
 }
 
 .__EmojiPicker__ {
-  @apply !m-0 !inline-block !rounded-none !border-none;
+  @apply !mt-0 !mb-[0.15rem] !inline-block !rounded-none !border-none;
 }

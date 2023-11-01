@@ -19,7 +19,7 @@ jobs:
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
-      - name: Install, build, and upload your site
+      - name: Install and build
         run: bun install && bun --bun run build
       - name: Upload your site to GitHub Pages
         uses: actions/upload-pages-artifact@v2
