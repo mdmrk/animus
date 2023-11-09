@@ -68,21 +68,22 @@ const ogUrl = new URL(
 </style>
 
 <script>
-  let copyButtonLabel = "Copy Code";
-  let codeBlocks = Array.from(document.querySelectorAll("pre"));
+  const copyButtonLabel = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path>   <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path></svg>`;
+  const copyButtonDone = `<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clipboard-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path><path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path><path d="M9 14l2 2l4 -4"></path></svg>`;
 
-  for (let codeBlock of codeBlocks) {
-    let wrapper = document.createElement("div");
+  const codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (const codeBlock of codeBlocks) {
+    const wrapper = document.createElement("div");
     wrapper.style.position = "relative";
 
-    let copyButton = document.createElement("button");
+    const copyButton = document.createElement("button");
     copyButton.className = "copy-code";
     copyButton.innerHTML = copyButtonLabel;
 
     codeBlock.setAttribute("tabindex", "0");
     codeBlock.appendChild(copyButton);
-    // wrap codebock with relative parent element
-    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+    codeBlock.parentNode!.insertBefore(wrapper, codeBlock);
     wrapper.appendChild(codeBlock);
 
     copyButton.addEventListener("click", async () => {
@@ -90,17 +91,14 @@ const ogUrl = new URL(
     });
   }
 
-  async function copyCode(block, button) {
-    let code = block.querySelector("code");
-    let text = code.innerText;
+  async function copyCode(block: HTMLPreElement, button: HTMLButtonElement) {
+    const code = block.querySelector("code")!;
+    const text = code.innerText;
 
     await navigator.clipboard.writeText(text);
-
-    // visual feedback that task is completed
-    button.innerText = "Code Copied";
-
+    button.innerHTML = copyButtonDone;
     setTimeout(() => {
-      button.innerText = copyButtonLabel;
+      button.innerHTML = copyButtonLabel;
     }, 700);
   }
 </script>

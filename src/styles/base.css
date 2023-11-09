@@ -150,3 +150,7 @@
 .__EmojiPicker__ {
   @apply !mb-[0.15rem] !mt-0 !inline-block !rounded-none !border-none;
 }
+
+.copy-code {
+  @apply absolute right-0 top-0 m-3 font-bold opacity-80;
+}
