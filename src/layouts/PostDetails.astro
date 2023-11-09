@@ -38,8 +38,7 @@ const ogUrl = new URL(
       class="focus-outline mb-2 mt-8 flex hover:opacity-75"
       onclick="history.back()"
     >
-      <span class="pl-2 text-sm">&lt Go back</span
-      >
+      <span class="pl-2 text-sm">&lt Go back</span>
     </button>
   </div>
   <main id="main-content">
@@ -67,3 +66,41 @@ const ogUrl = new URL(
     @apply my-8;
   }
 </style>
+
+<script>
+  let copyButtonLabel = "Copy Code";
+  let codeBlocks = Array.from(document.querySelectorAll("pre"));
+
+  for (let codeBlock of codeBlocks) {
+    let wrapper = document.createElement("div");
+    wrapper.style.position = "relative";
+
+    let copyButton = document.createElement("button");
+    copyButton.className = "copy-code";
+    copyButton.innerHTML = copyButtonLabel;
+
+    codeBlock.setAttribute("tabindex", "0");
+    codeBlock.appendChild(copyButton);
+    // wrap codebock with relative parent element
+    codeBlock.parentNode.insertBefore(wrapper, codeBlock);
+    wrapper.appendChild(codeBlock);
+
+    copyButton.addEventListener("click", async () => {
+      await copyCode(codeBlock, copyButton);
+    });
+  }
+
+  async function copyCode(block, button) {
+    let code = block.querySelector("code");
+    let text = code.innerText;
+
+    await navigator.clipboard.writeText(text);
+
+    // visual feedback that task is completed
+    button.innerText = "Code Copied";
+
+    setTimeout(() => {
+      button.innerText = copyButtonLabel;
+    }, 700);
+  }
+</script>

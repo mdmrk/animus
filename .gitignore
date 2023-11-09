@@ -20,7 +20,7 @@ pnpm-debug.log*
 .DS_Store
 
 # ignore .astro directory
-.astro
+/.astro
 
 # ignore Jampack cache files
 .jampack/

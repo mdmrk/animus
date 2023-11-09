@@ -37,9 +37,7 @@ const sortedPosts = getSortedPosts(posts);
         }
       </ul>
       <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts">
-          All Posts
-        </LinkButton>
+        <LinkButton href="/posts">All Posts</LinkButton>
       </div>
     </section>
   </main>
@@ -81,6 +79,6 @@ const sortedPosts = getSortedPosts(posts);
     @apply text-2xl font-semibold;
   }
   .all-posts-btn-wrapper {
-    @apply mx-auto my-8 w-fit hover:text-skin-accent text-center;
+    @apply mx-auto my-8 w-fit text-center hover:text-skin-accent;
   }
 </style>
