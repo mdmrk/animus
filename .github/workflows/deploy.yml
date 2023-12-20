@@ -22,7 +22,7 @@ jobs:
       - name: Install and build
         run: bun install && bun --bun run build
       - name: Upload your site to GitHub Pages
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
 
